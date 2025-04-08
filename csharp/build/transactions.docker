@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /build
+
+COPY ./csharp/Payment.System.Transactions.Contracts ./Payment.System.Transactions.Contracts
+COPY ./csharp/Payment.System.Transactions ./Payment.System.Transactions
+
+# Restore as distinct layers
+RUN dotnet restore ./Payment.System.Transactions.Contracts/Payment.System.Transactions.Contracts.csproj 
+RUN dotnet restore ./Payment.System.Transactions/Payment.System.Transactions.csproj
+
+RUN dotnet publish ./Payment.System.Transactions/Payment.System.Transactions.csproj -o ./artifact -c Debug --no-restore /p:UseAppHost 
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+EXPOSE 8080
+EXPOSE 8081
+WORKDIR /app
+COPY --from=build /build/artifact .
+ENTRYPOINT ["dotnet", "./Payment.System.Transactions.dll"]
