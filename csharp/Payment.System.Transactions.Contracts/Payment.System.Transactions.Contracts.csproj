@@ -14,9 +14,9 @@
   </ItemGroup>
   
    <ItemGroup>
-    <Protobuf Include="greet.proto" GrpcServices="Both" />
+    <Protobuf Include="../../contracts/greet.proto" GrpcServices="Both" />
   </ItemGroup>
    <ItemGroup>
-    <Protobuf Include="greetRequest.proto" GrpcServices="Both" />
+    <Protobuf Include="../../contracts/greetRequest.proto" GrpcServices="Both" />
   </ItemGroup>
 </Project>
