@@ -1,0 +1,49 @@
+{
+    "bsonType": "object",
+    "title": "transactions",
+    "required": [
+        "_id",
+        "creditorCardNumber",
+        "debtorCardNumber",
+        "creditorCardExpirationDate",
+        "creditorNameOnCard",
+        "creditorCardCvc",
+        "amount",
+        "currency"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "creditorCardNumber": {
+            "bsonType": "string",
+            "minLength": 15,
+            "maxLength": 16
+        },
+        "creditorCardExpirationDate": {
+            "bsonType": "date"
+        },
+        "creditorNameOnCard": {
+            "bsonType": "string"
+        },
+        "creditorCardCvc": {
+            "bsonType": "string",
+            "minLength": 3,
+            "maxLength": 4
+        },
+        "debtorCardNumber": {
+            "bsonType": "string",
+            "minLength": 15,
+            "maxLength": 16
+        },
+        "amount": {
+            "bsonType" : "long"
+        },
+        "currency": {
+            "bsonType": "string",
+            "maxLength": 3,
+            "minLength": 3
+        }
+    }
+}
