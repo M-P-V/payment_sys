@@ -1,0 +1,60 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Transactions Service",
+            "command": "dotnet",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",
+            },
+            "args": [
+                "build",
+                "csharp/Payment.System.Transactions/Payment.System.Transactions.csproj",
+                "--no-restore",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Restore C# All Packages",
+            "group": "build",
+            "dependsOn":[
+                "Restore Transactions Service Packages",
+                "Restore Transactions Service Contracts"
+            ]
+        },
+        {
+            "label": "Restore Transactions Service Packages",
+            "command": "dotnet",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",    
+                "reveal":"silent"           
+            },
+            "args": [
+                "restore",
+                "csharp/Payment.System.Transactions/Payment.System.Transactions.csproj"
+            ]
+        },
+        {
+            "label": "Restore Transactions Service Contracts",
+            "command": "dotnet",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",               
+                "reveal":"silent"
+            },
+            "args": [
+                "restore",
+                "csharp/Payment.System.Transactions.Contracts/Payment.System.Transactions.Contracts.csproj"
+            ]
+        }
+    ]
+}
