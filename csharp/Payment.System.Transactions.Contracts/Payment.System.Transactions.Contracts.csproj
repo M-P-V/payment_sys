@@ -12,11 +12,9 @@
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
     <PackageReference Include="Grpc.Tools" Version="2.71.0" />
   </ItemGroup>
-  
    <ItemGroup>
-    <Protobuf Include="../../contracts/greet.proto" GrpcServices="Both" />
-  </ItemGroup>
-   <ItemGroup>
-    <Protobuf Include="../../contracts/greetRequest.proto" GrpcServices="Both" />
+    <Protobuf Include="../../contracts/createTransaction.proto" GrpcServices="Both" />
+    <Protobuf Include="../../contracts/common.proto" GrpcServices="Both" />
+    <Protobuf Include="../../contracts/transactionsService.proto" GrpcServices="Both" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,0 @@
-syntax = "proto3";
-option csharp_namespace = "Payment.System.Transactions.Contracts";
-
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
-}

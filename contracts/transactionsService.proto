@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "createTransaction.proto";
+
+package Payment.System.Transactions.Contracts;
+
+service TransactionsService {
+    rpc CreateTransaction (Payment.System.Transactions.Contracts.CreateTransactionCommand) returns (Payment.System.Transactions.Contracts.CreateTransactionReply);
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package Payment.System.Common;
+
+enum Currency {
+    EUR = 0;
+    USD = 1;
+    MDL = 2;
+}
+
+enum Status {
+    Success = 0;
+    Warning = 1;
+    Error = 2;
+}
+
+message OperationStatus {
+    Status status = 1;
+    repeated string messages = 2;
+}
+
+message OperationContext {
+    string operationId = 1;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package Payment.System.Transactions.Contracts;
+
+message CreateTransactionCommand {
+    Payment.System.Common.OperationContext operation_context = 1;
+    string creditor_card_number = 2;
+    string creditor_card_expiration_month = 3;
+    string creditor_card_expiration_year = 4;
+    string creditor_card_name_on_card = 5;
+    string creditor_card_cvc = 6;
+    string debtor_card_number = 7;
+    uint64 amount = 8;
+}
+
+message CreateTransactionReply {
+    Payment.System.Common.OperationStatus status = 1;
+    string transaction_id = 2;
+}
